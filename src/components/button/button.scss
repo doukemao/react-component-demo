@@ -1,3 +1,28 @@
-button {
-  font-size: 60px;
+/// button.scss
+
+.btn {
+  font-size: 14px;
+
+  &-small {
+    font-size: 12px;
+  }
+
+  &-large {
+    font-size: 18px;
+  }
+
+  &-primary {
+    background-color: blue;
+    color: white;
+  }
+
+  &-warn {
+    background-color: yellow;
+    color: white;
+  }
+
+  &-error {
+    background-color: red;
+    color: white;
+  }
 }

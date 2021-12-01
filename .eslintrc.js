@@ -14,7 +14,7 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: false,
     },
     ecmaVersion: 13,
     sourceType: "module",
@@ -37,6 +37,7 @@ module.exports = {
     ],
     "import/extensions": ["error", "never"],
     "react/jsx-props-no-spreading": ["error", { custom: "ignore" }],
+    "max-len": ["error", { code: 128 }],
   },
   settings: {
     "import/parsers": {
@@ -50,5 +51,5 @@ module.exports = {
       },
     },
   },
-  "ignorePatterns": ["src/stories/*.tsx"],
+  ignorePatterns: ["src/stories/*.tsx"],
 };
