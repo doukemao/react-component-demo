@@ -1,28 +1,92 @@
 /// button.scss
 
+@keyframes example {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .btn {
   font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 1px 1px 3px gray;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 1px 1px 3px darkgray;
+  }
 
   &-small {
     font-size: 12px;
+    padding: 2px 4px;
   }
 
   &-large {
     font-size: 18px;
+    padding: 6px 12px;
   }
 
   &-primary {
-    background-color: blue;
+    background-color: rgb(30 167 253);
     color: white;
   }
 
   &-warn {
-    background-color: yellow;
+    background-color: rgb(211 207 1);
     color: white;
   }
 
   &-error {
-    background-color: red;
+    background-color: rgb(200 0 0);
     color: white;
+  }
+
+  &-disabled,
+  &-disabled:hover {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &-loading {
+    * {
+      pointer-events: none;
+    }
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  .icon {
+    // height: 200px;
+    // width: 200px;
+    margin-right: 5px;
+
+    &.icon-loading {
+      animation-name: example;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
   }
 }

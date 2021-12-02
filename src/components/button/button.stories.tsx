@@ -6,25 +6,34 @@ import { Button } from './button';
 export default {
   title: 'MyComponents/Button',
   component: Button,
+  argTypes: {
+    disabled: { control: 'boolean' },
+  },
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const HelloWorld = Template.bind({});
+export const DefaultButton = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: 'Hello world!',
-  type: 'primary',
-  size: 'large',
-  status: 'warn',
+DefaultButton.args = {
+  label: 'button-default',
+  type: 'default',
+  size: 'normal',
   onClick(e) {
-    console.log(e.target);
+    console.log([e]);
   },
 };
 
-export const ClickMe = Template.bind({});
-ClickMe.args = {
-  label: 'Click me!',
+export const SmallButton = Template.bind({});
+SmallButton.args = {
+  label: 'button-small',
   size: 'small',
+};
+
+export const DisabledButton = Template.bind({});
+SmallButton.args = {
+  label: 'button-disabled',
+  size: 'large',
+  disabled: true,
 };

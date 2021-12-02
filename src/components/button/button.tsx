@@ -1,22 +1,26 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import './button.scss';
 import classNames from 'classnames';
+import LoadingIcon from './loading.svgr';
+import SuccessIcon from './success.svgr';
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   label?: string;
   size?: 'small' | 'large' | 'normal';
   type?: 'primary' | 'default';
-  status?: 'warn' | 'error' | 'loading';
+  loading?: boolean;
   htmlType?: NonNullable<ButtonHTMLAttributes<HTMLButtonElement>['type']>;
-}
+};
 
 export const Button = ({
   label = 'button',
   size = 'normal',
   type = 'default',
-  status,
+  loading = false,
   // className,
   htmlType = 'button',
+  disabled,
+  onClick,
   ...rest
 }: ButtonProps) => (
   <button
@@ -26,12 +30,16 @@ export const Button = ({
       'btn',
       `btn-${size}`,
       { [`btn-${type}`]: type === 'primary' },
-      { [`btn-${status}`]: status }
+      { [`btn-loading`]: loading },
+      { 'btn-disabled': disabled }
       // className
     )}
     // eslint-disable-next-line react/button-has-type
     type={htmlType}
+    // loading disable onClick
+    onClick={loading ? undefined : onClick}
   >
-    {label}
+    {loading && <LoadingIcon className={classNames('icon', 'icon-loading')} />}
+    <span>{label}</span>
   </button>
 );
