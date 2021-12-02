@@ -2,7 +2,6 @@ import React, { ButtonHTMLAttributes } from 'react';
 import './button.scss';
 import classNames from 'classnames';
 import LoadingIcon from './loading.svgr';
-import SuccessIcon from './success.svgr';
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   label?: string;
