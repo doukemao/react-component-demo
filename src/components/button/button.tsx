@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import './button.scss';
 import classNames from 'classnames';
-import LoadingIcon from './loading.svgr';
+import { Loading } from '../icon';
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   label?: string;
@@ -16,7 +16,7 @@ export const Button = ({
   size = 'normal',
   type = 'default',
   loading = false,
-  // className,
+  className,
   htmlType = 'button',
   disabled,
   onClick,
@@ -30,15 +30,16 @@ export const Button = ({
       `btn-${size}`,
       { [`btn-${type}`]: type === 'primary' },
       { [`btn-loading`]: loading },
-      { 'btn-disabled': disabled }
-      // className
+      { 'btn-disabled': disabled },
+      className
     )}
     // eslint-disable-next-line react/button-has-type
     type={htmlType}
     // loading disable onClick
     onClick={loading ? undefined : onClick}
+    disabled={disabled}
   >
-    {loading && <LoadingIcon className={classNames('icon', 'icon-loading')} />}
+    {loading && <Loading className={classNames('icon', 'icon-loading')} />}
     <span>{label}</span>
   </button>
 );

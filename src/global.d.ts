@@ -3,13 +3,16 @@
 // declare module '*.less';
 // declare module '*.scss';
 // declare module '*.sass';
-// declare module '*.svg';
-declare module '*.svgr' {
-  import React = require('react');
-  
-  const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
-  export default ReactComponent;
+declare module '*.svg' {
+  const src: string;
+  export default src;
 }
+// declare module '*.svg?react' {
+//   import React = require('react');
+
+//   const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
+//   export default ReactComponent;
+// }
 // declare module '*.png';
 // declare module '*.jpg';
 // declare module '*.jpeg';

@@ -17,23 +17,24 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const DefaultButton = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 DefaultButton.args = {
-  label: 'button-default',
+  label: 'default',
   type: 'default',
   size: 'normal',
+  // disabled: false,
   onClick(e) {
     console.log([e]);
   },
 };
 
-export const SmallButton = Template.bind({});
-SmallButton.args = {
-  label: 'button-small',
+export const Small = Template.bind({});
+Small.args = {
+  label: 'small',
   size: 'small',
 };
 
-export const DisabledButton = Template.bind({});
-SmallButton.args = {
-  label: 'button-disabled',
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'disabled',
   size: 'large',
   disabled: true,
 };
