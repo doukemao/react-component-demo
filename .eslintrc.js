@@ -48,5 +48,5 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['src/stories/*.tsx'],
+  ignorePatterns: ['src/stories/', '/dist'],
 };
